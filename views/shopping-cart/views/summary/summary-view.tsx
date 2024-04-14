@@ -9,14 +9,14 @@ import {
 } from "@/components/ui/card";
 import { ProductItemYourCard } from "../your-card/item/item";
 import { cn } from "@/lib/utils";
-import { SubmitSummaryShoppingCard } from "./submit/submit";
+import { SubmitSummaryShoppingCart } from "./submit/submit";
 import { finishMutationApi } from "./submit/finish-mutation-api";
 
-import { useShoppingCardState } from "../../hooks/use-shopping-card-state";
+import { useShoppingCartState } from "../../hooks/use-shopping-card-state";
 
-export const SummaryShoppingCardView = () => {
+export const SummaryShoppingCartView = () => {
   const { dispatch, isShipmentAvailable, state, totalPrice } =
-    useShoppingCardState();
+    useShoppingCartState();
 
   const onSubmit = async () => {
     const mutation = await finishMutationApi(state);
@@ -127,7 +127,7 @@ export const SummaryShoppingCardView = () => {
           >
             Prev Step
           </Button>
-          <SubmitSummaryShoppingCard />
+          <SubmitSummaryShoppingCart />
         </form>
       </CardFooter>
     </>

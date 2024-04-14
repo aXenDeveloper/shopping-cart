@@ -8,14 +8,14 @@ import { AddProduct } from "./add-product/add-product";
 import { ProductItemYourCard } from "./item/item";
 import { Button } from "@/components/ui/button";
 
-import { useShoppingCardState } from "../../hooks/use-shopping-card-state";
+import { useShoppingCartState } from "../../hooks/use-shopping-card-state";
 
-export const YourCardShoppingCardView = () => {
+export const YourCardShoppingCartView = () => {
   const {
     dispatch,
     state: { products },
     totalPrice
-  } = useShoppingCardState();
+  } = useShoppingCartState();
 
   return (
     <>

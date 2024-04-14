@@ -1,6 +1,6 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import {
@@ -19,27 +19,28 @@ import {
   SelectValue
 } from "@/components/ui/select";
 import {
-  PaymentEnum,
-  useShoppingCardState
+  ShipmentEnum,
+  availableShipments,
+  useShoppingCartState
 } from "../hooks/use-shopping-card-state";
 
 const formSchema = z.object({
-  payment: z.nativeEnum(PaymentEnum)
+  shipment: z.nativeEnum(ShipmentEnum)
 });
 
-export const PaymentShoppingCardView = () => {
-  const { dispatch, state } = useShoppingCardState();
+export const ShipmentShoppingCartView = () => {
+  const { dispatch, state } = useShoppingCartState();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      payment: state.payment
+      shipment: state.shipment
     },
     mode: "onBlur"
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     dispatch({
-      type: "ADD_PAYMENT",
+      type: "ADD_SHIPMENT",
       context: values
     });
   };
@@ -47,7 +48,7 @@ export const PaymentShoppingCardView = () => {
   return (
     <>
       <CardHeader>
-        <h1 className="text-2xl font-bold">Payment</h1>
+        <h1 className="text-2xl font-bold">Shipment</h1>
       </CardHeader>
 
       <Form {...form}>
@@ -55,7 +56,7 @@ export const PaymentShoppingCardView = () => {
           <CardContent className="max-w-96 space-y-4">
             <FormField
               control={form.control}
-              name="payment"
+              name="shipment"
               render={({ field }) => (
                 <FormItem>
                   <Select
@@ -68,11 +69,17 @@ export const PaymentShoppingCardView = () => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {Object.values(PaymentEnum).map(payment => (
-                        <SelectItem key={payment} value={payment}>
-                          {payment}
-                        </SelectItem>
-                      ))}
+                      {availableShipments
+                        .filter(
+                          item =>
+                            item.country.includes(state.address.country) ||
+                            item.country === "*"
+                        )
+                        .map(shipment => (
+                          <SelectItem key={shipment.type} value={shipment.type}>
+                            {shipment.type}
+                          </SelectItem>
+                        ))}
                     </SelectContent>
                   </Select>
                   <FormMessage />

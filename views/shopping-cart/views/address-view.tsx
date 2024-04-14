@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/select";
 import {
   CountryEnum,
-  useShoppingCardState
+  useShoppingCartState
 } from "../hooks/use-shopping-card-state";
 
 const formSchema = z.object({
@@ -35,8 +35,8 @@ const formSchema = z.object({
   country: z.nativeEnum(CountryEnum)
 });
 
-export const AddressShoppingCardView = () => {
-  const { dispatch, state } = useShoppingCardState();
+export const AddressShoppingCartView = () => {
+  const { dispatch, state } = useShoppingCartState();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {

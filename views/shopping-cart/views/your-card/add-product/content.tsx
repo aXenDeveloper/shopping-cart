@@ -20,8 +20,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-
-import { useShoppingCardState } from "../../../hooks/use-shopping-card-state";
+import { useShoppingCartState } from "@/views/shopping-cart/hooks/use-shopping-card-state";
 
 const formSchema = z.object({
   name: z
@@ -38,7 +37,7 @@ const formSchema = z.object({
 });
 
 export const ContentAddProduct = () => {
-  const { dispatch } = useShoppingCardState();
+  const { dispatch } = useShoppingCartState();
   const { setOpen } = useDialog();
 
   const form = useForm<z.infer<typeof formSchema>>({

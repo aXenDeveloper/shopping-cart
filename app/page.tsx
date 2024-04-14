@@ -1,5 +1,5 @@
-import { ShoppingCardView } from "@/views/shopping-card/shopping-card-view";
+import { ShoppingCartView } from "@/views/shopping-cart/shopping-card-view";
 
 export default function Home() {
-  return <ShoppingCardView />;
+  return <ShoppingCartView />;
 }

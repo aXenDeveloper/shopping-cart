@@ -1,6 +1,6 @@
 "use server";
 
-import { ContextType } from "@/views/shopping-card/hooks/use-shopping-card-state";
+import { ContextType } from "@/views/shopping-cart/hooks/use-shopping-card-state";
 
 export const finishMutationApi = async (state: ContextType) => {
   try {

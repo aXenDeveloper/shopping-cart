@@ -8,10 +8,10 @@ import {
   CardTitle
 } from "@/components/ui/card";
 
-import { useShoppingCardState } from "../../hooks/use-shopping-card-state";
+import { useShoppingCartState } from "../../hooks/use-shopping-card-state";
 
-export const FinishedShoppingCardView = () => {
-  const { dispatch } = useShoppingCardState();
+export const FinishedShoppingCartView = () => {
+  const { dispatch } = useShoppingCartState();
 
   return (
     <>

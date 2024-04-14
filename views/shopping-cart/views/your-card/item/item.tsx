@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import { DeleteButtonProductItemYourCard } from "./delete-button";
-
-import { Product } from "../../../hooks/use-shopping-card-state";
+import { Product } from "@/views/shopping-cart/hooks/use-shopping-card-state";
 
 interface Props extends Product {
   preview?: boolean;

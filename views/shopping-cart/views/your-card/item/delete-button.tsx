@@ -18,15 +18,14 @@ import {
   TooltipProvider,
   TooltipTrigger
 } from "@/components/ui/tooltip";
-
-import { useShoppingCardState } from "../../../hooks/use-shopping-card-state";
+import { useShoppingCartState } from "@/views/shopping-cart/hooks/use-shopping-card-state";
 
 interface Props {
   id: string;
 }
 
 export const DeleteButtonProductItemYourCard = ({ id }: Props) => {
-  const { dispatch } = useShoppingCardState();
+  const { dispatch } = useShoppingCartState();
 
   return (
     <AlertDialog>

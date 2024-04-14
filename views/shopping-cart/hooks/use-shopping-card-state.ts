@@ -214,11 +214,11 @@ interface Args {
   totalPrice: number;
 }
 
-export const ShoppingCardStateContext = createContext<Args>({
+export const ShoppingCartStateContext = createContext<Args>({
   state: context,
   dispatch: () => {},
   totalPrice: 0,
   isShipmentAvailable: false
 });
 
-export const useShoppingCardState = () => useContext(ShoppingCardStateContext);
+export const useShoppingCartState = () => useContext(ShoppingCartStateContext);

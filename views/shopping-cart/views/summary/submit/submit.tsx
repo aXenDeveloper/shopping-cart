@@ -2,7 +2,7 @@ import { useFormStatus } from "react-dom";
 
 import { Button } from "@/components/ui/button";
 
-export const SubmitSummaryShoppingCard = () => {
+export const SubmitSummaryShoppingCart = () => {
   const { pending } = useFormStatus();
 
   return (
